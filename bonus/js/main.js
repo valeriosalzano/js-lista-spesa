@@ -17,6 +17,7 @@ while (buyMeIndex < buyMeArray.length) {
 
 let listArrayDom = document.querySelectorAll('#list li')
 
+// pulsante per aggiungere un articolo
 const addArticleBtn = document.getElementById("addArticle");
 addArticleBtn.addEventListener('click', 
     function(){
@@ -27,6 +28,7 @@ addArticleBtn.addEventListener('click',
     }
 );
 
+// pulsante per rimuovere un articolo
 const removeArticleBtn = document.getElementById("removeArticle");
 removeArticleBtn.addEventListener('click',
     function(){
@@ -41,3 +43,17 @@ removeArticleBtn.addEventListener('click',
         listArrayDom = document.querySelectorAll('#list li');
     }
 );
+
+
+
+// pulsante per azzerare la lista
+const resetListBtn = document.getElementById("resetList");
+resetListBtn.addEventListener('click',
+    function(){
+        const confirm = prompt("Confermi di voler cancellare la lista? Digita 'si' per procedere.");
+        if (confirm === 'si'){
+            listDom.innerHTML = "";
+        }
+    }
+)
+
