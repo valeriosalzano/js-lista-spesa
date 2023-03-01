@@ -58,6 +58,10 @@ h1, h2 {
     margin: 1rem 0;
 }
 
+#list li.checked {
+    text-decoration: line-through;
+}
+
 @media all and (min-width: 768px) {
     main {
         height: 100vh;

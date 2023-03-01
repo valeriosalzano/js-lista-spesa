@@ -21,10 +21,11 @@ let listArrayDom = document.querySelectorAll('#list li')
 const addArticleBtn = document.getElementById("addArticle");
 addArticleBtn.addEventListener('click', 
     function(){
-        const userPrompt = prompt("Quale elemento vuoi aggiungere alla lista?");
+        const userPrompt = prompt("Quale elemento vuoi aggiungere alla lista? (senza maiuscole)");
         const listItem = document.createElement('li');
         listItem.innerHTML = userPrompt;
         listDom.append(listItem);
+        listArrayDom = document.querySelectorAll('#list li');
     }
 );
 
@@ -32,7 +33,7 @@ addArticleBtn.addEventListener('click',
 const removeArticleBtn = document.getElementById("removeArticle");
 removeArticleBtn.addEventListener('click',
     function(){
-        const userPrompt = prompt("Quale elemento vuoi rimuovere dalla lista?");
+        const userPrompt = prompt("Quale elemento vuoi rimuovere dalla lista? (senza maiuscole)");
         let elementToRemove;
         for (let i=0; i<listArrayDom.length; i++){
             if (userPrompt == listArrayDom[i].innerHTML.toString()){
@@ -44,7 +45,21 @@ removeArticleBtn.addEventListener('click',
     }
 );
 
-
+// pulsante per contrassegnare come acquistato
+const checkedArticleBtn = document.getElementById("checkedArticle");
+checkedArticleBtn.addEventListener('click',
+    function(){
+        const userPrompt = prompt("Quale elemento vuoi contrassegnare come acquistato? (senza maiuscole)");
+        let elementToCheck;
+        for (let i=0; i<listArrayDom.length; i++){
+            if (userPrompt == listArrayDom[i].innerHTML.toString()){
+                elementToCheck = document.querySelector(`#list li:nth-of-type(${i+1})`);
+                elementToCheck.classList.add("checked");
+            };
+        };
+        listArrayDom = document.querySelectorAll('#list li');
+    }
+)
 
 // pulsante per azzerare la lista
 const resetListBtn = document.getElementById("resetList");
